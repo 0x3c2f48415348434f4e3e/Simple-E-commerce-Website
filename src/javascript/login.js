@@ -38,9 +38,14 @@ let preventEvent = (event)=>{
                 if((username.value === i["userName"]) && (password.value === i["password"])){
                     console.log("Able to log into application");
                     errorSection = ""
+                    //actually, we can use cookies to store user data
+                    
                     //we can store used data in local storage, and then get it after
-                    window.localStorage.setItem("userName",username.value);
-                    window.localStorage.setItem("password",password.value);
+                    //window.localStorage.setItem("userName",username.value);
+                    //window.localStorage.setItem("password",password.value);
+                    document.cookie = `username=${username.value}`;
+                    document.cookie = `password=${password.value}`;
+                    
                     window.location.href = "http://127.0.0.1:5500/src/html/main.html?";
                 }
                 else{
